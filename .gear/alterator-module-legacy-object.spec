@@ -22,6 +22,9 @@ mkdir -p %buildroot%{_libexecdir}/rpm
 install -v -p -m 755 -D alterator-browser.filetrigger %buildroot%{_libexecdir}/rpm
 install -v -p -m 755 -D gen-backends.sh %buildroot%{_libexecdir}/rpm
 
+%post
+bash -c %{_libexecdir}/rpm/gen-backends.sh
+
 %files
 %{_libexecdir}/rpm/alterator-browser.filetrigger
 %{_libexecdir}/rpm/gen-backends.sh
