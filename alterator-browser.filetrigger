@@ -1,0 +1,6 @@
+if egrep -qs '^/usr/share/alterator/applications'; then
+/usr/lib/rpm/gen-backends.sh
+
+fi
+
+
