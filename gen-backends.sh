@@ -1,13 +1,13 @@
 #!/bin/bash
-#writedirectory="/usr/share/alterator/backends/"
-writedirectory="/home/qtalsa/backends/"
+writedirectory="/usr/share/alterator/backends/"
 examplefilename="ljkafgldfg.dfsfsd"
 
+mkdir -p $writedirectory
 touch $writedirectory$examplefilename > /dev/null 2>&1
 
 if [ $? -ne 0 ] 
 then
-	echo "Can't access /usr/share/alterator/backends"
+	echo "Can't access $writedirectory"
 	exit 1
 fi
 
