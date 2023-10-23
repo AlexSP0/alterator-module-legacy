@@ -1,13 +1,13 @@
 #!/bin/bash
-#writedirectory="/usr/share/alterator/backends/"
-writedirectory="/home/qtalsa/backends/"
+writedirectory="/usr/share/alterator/backends/"
 examplefilename="ljkafgldfg.dfsfsd"
 
+mkdir -p $writedirectory
 touch $writedirectory$examplefilename > /dev/null 2>&1
 
 if [ $? -ne 0 ] 
 then
-	echo "Can't access /usr/share/alterator/backends"
+	echo "Can't access $writedirectory"
 	exit 1
 fi
 
@@ -21,17 +21,18 @@ do
 		then
 			filename=`basename $file`
 			cleanfilename=`echo $filename | sed 's/\..*//'`
-			writefilename=$writedirectory$filename
+			writefilename=$writedirectory$cleanfilename
+			ext=".backend"
 
-			echo "[Manager]" > $writefilename
-			echo "module_name = executor" > $writefilename
-			echo "node_name = $cleanfilename" > $writefilename
-			echo  > $writefilename
-			echo "interface_name = object" > $writefilename
-			echo > $writefilename
-			echo "[info]" > $writefilename
-			echo "execute = cat /usr/share/alterator/applications/$cleanfilename.desktop" > $writefilename
-			echo "stdout_bytes = enabled" > $writefilename
+			echo "[Manager]" > $writefilename$ext
+			echo "module_name = executor" >> $writefilename$ext
+			echo "node_name = $cleanfilename" >> $writefilename$ext
+			echo  >> $writefilename$ext
+			echo "interface_name = object" >> $writefilename$ext
+			echo >> $writefilename$ext
+			echo "[Info]" >> $writefilename$ext
+			echo "execute = cat /usr/share/alterator/applications/$cleanfilename.desktop" >> $writefilename$ext
+			echo "stdout_bytes = enabled" >> $writefilename$ext
 		fi
 	done
 done
