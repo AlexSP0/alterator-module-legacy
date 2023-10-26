@@ -28,7 +28,7 @@ do
 			echo "module_name = executor" >> $writefilename$ext
 			echo "node_name = $cleanfilename" >> $writefilename$ext
 			echo  >> $writefilename$ext
-			echo "interface_name = object" >> $writefilename$ext
+			echo "interface_name = displayable" >> $writefilename$ext
 			echo >> $writefilename$ext
 			echo "[Info]" >> $writefilename$ext
 			echo "execute = cat /usr/share/alterator/applications/$cleanfilename.desktop" >> $writefilename$ext
