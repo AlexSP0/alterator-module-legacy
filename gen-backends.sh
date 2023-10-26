@@ -33,6 +33,7 @@ do
 			echo "[Info]" >> $writefilename$ext
 			echo "execute = cat /usr/share/alterator/applications/$cleanfilename.desktop" >> $writefilename$ext
 			echo "stdout_bytes = enabled" >> $writefilename$ext
+			echo "action_id = Info" >> $writefilename$ext 
 		fi
 	done
 done
