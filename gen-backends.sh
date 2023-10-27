@@ -20,7 +20,10 @@ do
 		if grep -q "[Desktop Entry]" $file
 		then
 			filename=`basename $file`
+			desktopfilename=$filename
+			filename=`tr "-" "_" <<< $filename`
 			cleanfilename=`echo $filename | sed 's/\..*//'`
+			cleandesktopfilename=`echo $desktopfilename | sed 's/\..*//'`
 			writefilename=$writedirectory$cleanfilename
 			ext=".backend"
 
@@ -31,9 +34,10 @@ do
 			echo "interface_name = displayable" >> $writefilename$ext
 			echo >> $writefilename$ext
 			echo "[Info]" >> $writefilename$ext
-			echo "execute = cat /usr/share/alterator/applications/$cleanfilename.desktop" >> $writefilename$ext
+			echo "execute = cat /usr/share/alterator/applications/$cleandesktopfilename.desktop" >> $writefilename$ext
 			echo "stdout_bytes = enabled" >> $writefilename$ext
-			echo "action_id = Info" >> $writefilename$ext 
+			echo "thread_limit = 3" >> $writefilename$ext
+			echo "action_id = Info" >> $writefilename$ext
 		fi
 	done
 done
