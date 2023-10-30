@@ -20,18 +20,24 @@ do
 		if grep -q "[Desktop Entry]" $file
 		then
 			filename=`basename $file`
+			desktopfilename=$filename
+			filename=`tr "-" "_" <<< $filename`
 			cleanfilename=`echo $filename | sed 's/\..*//'`
-			writefilename=$writedirectory$filename
+			cleandesktopfilename=`echo $desktopfilename | sed 's/\..*//'`
+			writefilename=$writedirectory$cleanfilename
+			ext=".backend"
 
-			echo "[Manager]" > $writefilename
-			echo "module_name = executor" > $writefilename
-			echo "node_name = $cleanfilename" > $writefilename
-			echo  > $writefilename
-			echo "interface_name = object" > $writefilename
-			echo > $writefilename
-			echo "[info]" > $writefilename
-			echo "execute = cat /usr/share/alterator/applications/$cleanfilename.desktop" > $writefilename
-			echo "stdout_bytes = enabled" > $writefilename
+			echo "[Manager]" > $writefilename$ext
+			echo "module_name = executor" >> $writefilename$ext
+			echo "node_name = $cleanfilename" >> $writefilename$ext
+			echo  >> $writefilename$ext
+			echo "interface_name = displayable" >> $writefilename$ext
+			echo >> $writefilename$ext
+			echo "[Info]" >> $writefilename$ext
+			echo "execute = cat /usr/share/alterator/applications/$cleandesktopfilename.desktop" >> $writefilename$ext
+			echo "stdout_bytes = enabled" >> $writefilename$ext
+			echo "thread_limit = 3" >> $writefilename$ext
+			echo "action_id = Info" >> $writefilename$ext
 		fi
 	done
 done
