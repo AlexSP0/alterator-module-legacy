@@ -34,7 +34,7 @@ do
 			echo "interface_name = displayable" >> $writefilename$ext
 			echo >> $writefilename$ext
 			echo "[Info]" >> $writefilename$ext
-			echo "execute = cat /usr/share/alterator/applications/$cleandesktopfilename.desktop" >> $writefilename$ext
+			echo "execute = bash -c cat /usr/share/alterator/applications/$cleanfilename.desktop - <<< "X-Alterator-Internal-Name=$cleanfilename"" >> $writefilename$ext
 			echo "stdout_bytes = enabled" >> $writefilename$ext
 			echo "thread_limit = 3" >> $writefilename$ext
 			echo "action_id = Info" >> $writefilename$ext
