@@ -31,7 +31,7 @@ do
 			echo "module_name = executor" >> $writefilename$ext
 			echo "node_name = $cleanfilename" >> $writefilename$ext
 			echo  >> $writefilename$ext
-			echo "interface_name = displayable" >> $writefilename$ext
+			echo "interface_name = legacy" >> $writefilename$ext
 			echo >> $writefilename$ext
 			echo "[Info]" >> $writefilename$ext
 			echo "execute = bash -c 'cat /usr/share/alterator/applications/$cleandesktopfilename.desktop && echo \"X-Alterator-Internal-Name=$cleandesktopfilename\"'" >> $writefilename$ext

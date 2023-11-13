@@ -1,5 +1,5 @@
 Name: alterator-module-legacy-object
-Version: 0.1.2
+Version: 0.1.3
 Release: alt1
 
 Summary: Scripts to support the old alterator modules.
@@ -30,9 +30,14 @@ bash -c "%{_libexecdir}/rpm/gen-backends.sh /usr/share/alterator/applications/"
 %{_libexecdir}/rpm/gen-backends.sh
 
 %changelog
+* Mon Nov 13 2023 Aleksey Saprunov <sav@altlinux.org> 0.1.3-alt1
+- change interface name from object to legacy
+
 * Mon Oct 30 2023 Aleksey Saprunov <sav@altlinux.org> 0.1.2-alt1
 - add internal module name
+
 * Fri Oct 27 2023 Aleksey Saprunov <sav@altlinux.org> 0.1.1-alt1
 - fix module names
+
 * Mon Oct 23 2023 Aleksey Saprunov <sav@altlinux.org> 0.1.0-alt1
 - initial build
