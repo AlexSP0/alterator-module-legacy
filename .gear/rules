@@ -1,2 +1,2 @@
-spec: .gear/alterator-module-legacy-object.spec
+spec: alterator-module-legacy-object.spec
 tar: .
