@@ -18,17 +18,23 @@ Scripts to support the old alterator modules.
 %setup
 
 %install
+mkdir -p %buildroot%_libexecdir/alterator/scripts
 mkdir -p %buildroot%_libexecdir/rpm
+mkdir -p %buildroot%_datadir/alterator/applications
 install -v -p -m 755 -D alterator-browser.filetrigger %buildroot%_libexecdir/rpm
-install -v -p -m 755 -D gen-backends.sh %buildroot%_libexecdir/rpm
+install -v -p -m 755 -D gen-backends.sh %buildroot%_libexecdir/alterator/scripts
+install -v -p -m 755 -D legacy-runner.sh %buildroot%_libexecdir/alterator/scripts
+install -v -p -m 755 -D legacy-run.sh %buildroot%_libexecdir/alterator/scripts
+install -v -p -m 666 -D legacy-runner.alterator %buildroot%_datadir/alterator/applications
 
 %post
 bash -c "%_libexecdir/rpm/gen-backends.sh /usr/share/alterator/applications/"
 
 %files
 %_libexecdir/rpm/alterator-browser.filetrigger
-%_libexecdir/rpm/gen-backends.sh
+%_libexecdir/alterator/scripts/*.sh
+%_datadir/alterator/applications/legacy-runner.alterator
 
 %changelog
-* Mon Nov 13 2023 Aleksey Saprunov <sav@altlinux.org> 0.1.0-alt1
+* Wed Nov 22 2023 Aleksey Saprunov <sav@altlinux.org> 0.1.0-alt1
 - initial build

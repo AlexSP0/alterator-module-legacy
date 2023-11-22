@@ -38,6 +38,12 @@ do
 			echo "stdout_bytes = enabled" >> $writefilename$ext
 			echo "thread_limit = 3" >> $writefilename$ext
 			echo "action_id = Info" >> $writefilename$ext
+			echo >> $writefilename$ext
+			echo "[Run]" >> $writefilename$ext
+			echo "execute = /usr/lib/alterator/scripts/run-executor.sh $cleanfilename" >> $writefilename$ext
+			echo "thread_limit = 3" >> $writefilename$ext
+			echo "action_id = Run" >> $writefilename$ext
+
 		fi
 	done
 done
