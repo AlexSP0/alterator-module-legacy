@@ -28,7 +28,6 @@ mkdir -p %buildroot%_datadir/alterator/applications
 install -v -p -m 755 -D alterator-browser.filetrigger %buildroot%_libexecdir/rpm
 install -v -p -m 755 -D gen-backends.sh %buildroot%_libexecdir/alterator/scripts
 install -v -p -m 666 -D legacy-runner.py %buildroot%_libexecdir/alterator/scripts
-install -v -p -m 755 -D legacy-run.sh %buildroot%_libexecdir/alterator/scripts
 install -v -p -m 666 -D legacy-runner.alterator %buildroot%_datadir/alterator/applications
 
 %files
