@@ -27,9 +27,6 @@ install -v -p -m 755 -D legacy-runner.sh %buildroot%_libexecdir/alterator/script
 install -v -p -m 755 -D legacy-run.sh %buildroot%_libexecdir/alterator/scripts
 install -v -p -m 666 -D legacy-runner.alterator %buildroot%_datadir/alterator/applications
 
-%post
-bash -c "%_libexecdir/rpm/gen-backends.sh /usr/share/alterator/applications/"
-
 %files
 %_libexecdir/rpm/alterator-browser.filetrigger
 %_libexecdir/alterator/scripts/*.sh
