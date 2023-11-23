@@ -34,10 +34,16 @@ do
 			echo "interface_name = legacy" >> $writefilename$ext
 			echo >> $writefilename$ext
 			echo "[Info]" >> $writefilename$ext
-			echo "execute = bash -c 'cat /usr/share/alterator/applications/$cleandesktopfilename.desktop && echo \"X-Alterator-Internal-Name=$cleandesktopfilename\"'" >> $writefilename$ext
+			echo "execute = cat /usr/share/alterator/applications/$cleandesktopfilename.desktop" >> $writefilename$ext
 			echo "stdout_bytes = enabled" >> $writefilename$ext
 			echo "thread_limit = 3" >> $writefilename$ext
 			echo "action_id = Info" >> $writefilename$ext
+			echo >> $writefilename$ext
+			echo "[Run]" >> $writefilename$ext
+			echo "execute = /usr/lib/alterator/scripts/legacy-run.sh $cleanfilename" >> $writefilename$ext
+			echo "thread_limit = 3" >> $writefilename$ext
+			echo "action_id = Run" >> $writefilename$ext
+
 		fi
 	done
 done

@@ -1,6 +1,3 @@
 if egrep -qs '^/usr/share/alterator/applications'; then
-/usr/lib/rpm/gen-backends.sh
-
+/usr/lib/alterator/scripts/gen-backends.sh /usr/share/alterator/applications/
 fi
-
-
