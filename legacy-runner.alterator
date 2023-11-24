@@ -5,5 +5,5 @@ DisplayName=Legacy runner
 DisplayName[ru_RU]=Legacy исполнитель
 Comment=Application running old alterator modules via D-Bus
 Comment[ru_RU]=Приложение выполняющее модули старого альтератора через D-Bus
-Exec=dbus-send --system --dest=ru.basealt.alterator --print-reply --type=method_call %o ru.basealt.alterator.legacy.Run
+Exec=python3 /usr/lib/alterator/scripts/legacy-runner.py %o
 Interface=ru.basealt.alterator.legacy

@@ -40,7 +40,7 @@ do
 			echo "action_id = Info" >> $writefilename$ext
 			echo >> $writefilename$ext
 			echo "[Run]" >> $writefilename$ext
-			echo "execute = /usr/lib/alterator/scripts/legacy-run.sh $cleanfilename" >> $writefilename$ext
+			echo "execute = /usr/sbin/alterator-standalone $cleanfilename" >> $writefilename$ext
 			echo "thread_limit = 3" >> $writefilename$ext
 			echo "action_id = Run" >> $writefilename$ext
 
