@@ -13,6 +13,7 @@ Source0: %name-%version.tar
 
 
 BuildRequires(pre): rpm-build-python3 
+BuildRequires: python3-devel
 Requires: python3-module-pydbus
 
 %description

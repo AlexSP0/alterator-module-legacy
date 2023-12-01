@@ -32,16 +32,15 @@ do
 			echo "node_name = $cleanfilename" >> $writefilename$ext
 			echo  >> $writefilename$ext
 			echo "interface_name = legacy" >> $writefilename$ext
+			echo "thread_limit = 3" >> $writefilename$ext
 			echo >> $writefilename$ext
 			echo "[Info]" >> $writefilename$ext
 			echo "execute = cat /usr/share/alterator/applications/$cleandesktopfilename.desktop" >> $writefilename$ext
 			echo "stdout_bytes = enabled" >> $writefilename$ext
-			echo "thread_limit = 3" >> $writefilename$ext
 			echo "action_id = Info" >> $writefilename$ext
 			echo >> $writefilename$ext
 			echo "[Run]" >> $writefilename$ext
 			echo "execute = /usr/sbin/alterator-standalone $cleanfilename" >> $writefilename$ext
-			echo "thread_limit = 3" >> $writefilename$ext
 			echo "action_id = Run" >> $writefilename$ext
 
 		fi
