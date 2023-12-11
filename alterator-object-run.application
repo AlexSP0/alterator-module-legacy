@@ -1,0 +1,9 @@
+[Altertor Entry]
+Type=Application
+Name=alterator-object-run
+DisplayName=Alterator application runner by object path
+DisplayName[ru_RU]=Запуск приложений альтератор по имени объекта
+Comment=Application running alterator objects via D-Bus with XServer DISPLAY and AUTHORITY environment
+Comment[ru_RU]=Приложение запускающее объекты альтератора через D-Bus в окружении DISPLAY and AUTHORITY для XServer
+Exec=/usr/lib/alterator-module-legacy/alterator-object-run %o
+Interface=ru.basealt.alterator.legacy
