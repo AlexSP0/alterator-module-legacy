@@ -1,15 +1,17 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 from pydbus import SystemBus
 from os import getenv
 import sys
 
 if len(sys.argv) <= 1:
-    sys.exit("legacy-runer: D-Bus object path is required")
+    sys.exit("alterator-object-run: <dbus_object_path>")
 
+path = sys.argv[1]
 bus = SystemBus()
+
 manager = bus.get("ru.basealt.alterator", "/ru/basealt/alterator")
-obj = bus.get("ru.basealt.alterator", "/ru/basealt/alterator/" + sys.argv[1].split('/')[-1])
+obj = bus.get("ru.basealt.alterator", path)
 
 manager.SetEnvValue("DISPLAY", getenv("DISPLAY"))
 manager.SetEnvValue("XAUTHORITY", getenv("XAUTHORITY"))
