@@ -26,7 +26,8 @@ Alterator manager backends generator for support the old alterator modules.
 mkdir -p %buildroot%_libexecdir/%name
 mkdir -p %buildroot%_rpmlibdir/
 mkdir -p %buildroot%_alterator_datadir/applications
-mkdir -p %buildroot%_alterator_datadir/backends
+mkdir -p %buildroot%_sysconfdir/alterator/backends
+
 install -v -p -m 755 -D %name.filetrigger %buildroot%_rpmlibdir/
 install -v -p -m 755 -D alterator-generate-legacy-backends %buildroot%_libexecdir/%name
 install -v -p -m 755 -D alterator-object-run %buildroot%_libexecdir/%name
