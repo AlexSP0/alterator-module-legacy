@@ -1,0 +1,8 @@
+polkit.addRule(function(action, subject) {
+    if (action.id == "ru.basealt.alterator.legacy.Info") {
+        return polkit.Result.YES;
+    }
+    if (action.id == "ru.basealt.alterator.legacy.Run") {
+        return polkit.Result.AUTH_ADMIN_KEEP;
+    }
+});
