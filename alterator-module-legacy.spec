@@ -34,6 +34,7 @@ install -v -p -m 755 -D alterator-object-run %buildroot%_libexecdir/%name
 install -v -p -m 644 -D alterator-object-run.application %buildroot%_alterator_datadir/applications
 
 %files
+%dir %_sysconfdir/alterator/backends
 %_rpmlibdir/%name.filetrigger
 %_libexecdir/%name
 %_alterator_datadir/applications/*.application
