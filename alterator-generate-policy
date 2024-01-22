@@ -1,0 +1,47 @@
+#!/bin/bash -e
+
+legacy_dir="/usr/share/alterator/applications"
+policy_path="/usr/share/polkit-1/actions/ru.basealt.alterator.legacy.policy"
+
+info_default="yes"
+run_default="auth_admin_keep"
+
+cat >"$policy_path" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+"-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+"http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+
+EOF
+
+find "$legacy_dir" -name '*.desktop' | while read file; do
+	filename=$(basename $file)
+	modname="${filename%.*}"
+
+	cat >>"$policy_path" <<EOF
+  <action id="ru.basealt.alterator.legacy.$modname.Info">
+    <description>Alterator Authentication dialogue</description>
+    <message>ru.basealt.alterator.legacy.$modname.Info requires authentication.</message>
+    <defaults>
+      <allow_any>$info_default</allow_any>
+      <allow_inactive>$info_default</allow_inactive>
+      <allow_active>$info_default</allow_active>
+    </defaults>
+  </action>
+  <action id="ru.basealt.alterator.legacy.$modname.Run">
+    <description>Alterator Authentication dialogue</description>
+    <message>ru.basealt.alterator.legacy.$modname.Run requires authentication.</message>
+    <defaults>
+      <allow_any>$run_default</allow_any>
+      <allow_inactive>$run_default</allow_inactive>
+      <allow_active>$run_default</allow_active>
+    </defaults>
+  </action>
+
+EOF
+done
+
+cat >>"$policy_path" <<EOF
+</policyconfig>
+EOF

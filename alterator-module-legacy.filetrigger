@@ -2,4 +2,5 @@
 
 if grep -qs '^/usr/share/alterator/applications'; then
 	/usr/lib/alterator-module-legacy/alterator-generate-legacy-backends
+	/usr/lib/alterator-module-legacy/alterator-generate-policy
 fi

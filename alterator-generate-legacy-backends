@@ -22,6 +22,7 @@ Type = Backend
 Module = executor
 Name = $backend_name
 Interface = legacy
+action_id = ru.basealt.alterator.legacy.$modname
 
 [Info]
 execute = cat $file
